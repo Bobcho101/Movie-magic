@@ -1,7 +1,7 @@
 export default [
     {
         id: 'dw32dw-dag843-dawd2da',
-        title: 'Anabel',
+        title: 'Anabelle',
         category: 'Movie',
         genre: 'Horror',
         director: 'Random Person',
