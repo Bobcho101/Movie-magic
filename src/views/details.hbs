@@ -4,30 +4,32 @@
         <div class="card_left">
             <div class="card_datails">
 
-                <h1>{{currentMovie.title}}</h1>
+                <h1>{{currentMovieCopy.title}}</h1>
                 <div class="card-movie">
                     <div class="first-info">
-                        <p class="card-genre">Genre: {{currentMovie.genre}}</p>
-                        <p class="card-director">Directror: {{currentMovie.director}}</p>
+                        <p class="card-genre">Genre: {{currentMovieCopy.genre}}</p>
+                        <p class="card-director">Directror: {{currentMovieCopy.director}}</p>
                         
                     </div>
                     <div class="second-info">
                         
-                        <p class="card-year">Year: {{currentMovie.year}}</p>
-                        <p class="card-ranking">Rating: <span id="stars">&#x2605; &#x2605; &#x2605;
-                                &#x2605;</span></p>
+                        <p class="card-year">Year: {{currentMovieCopy.year}}</p>
+                        <p class="card-ranking">Rating: <span id="stars">{{currentMovieCopy.rating}}</span></p>
                     </div>
 
                 </div>
 
-                <p class="disc">Description: {{currentMovie.description}}</p>
-                    <p class="card-category">Category: {{currentMovie.category}}</p>
+                <p class="disc">Description: {{currentMovieCopy.description}}</p>
+                    <p class="card-category">Category: {{currentMovieCopy.category}}</p>
             </div>
         </div>
         <div class="card_right">
-            <img src="{{currentMovie.moviePoster}}"
-                alt="{{currentMovie.title}}">
+            <img src="{{currentMovieCopy.moviePoster}}"
+                alt="{{currentMovieCopy.title}}">
         </div>
     </div>
 
 </section>
+
+
+{{!-- ★ --}}
