@@ -12,7 +12,6 @@ createController.get('/create', (req, res) => {
 createController.post('/create', (req, res) => {
     const formData = req.body;
     const id = uuidv4();
-    console.log(id);
     
     formData['id'] = id;
     movies.push(formData);
