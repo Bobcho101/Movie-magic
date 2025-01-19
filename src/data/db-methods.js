@@ -9,6 +9,10 @@ export function getAllFilteredMovies(filter = {}){
     if(filter.search){
         result = result.filter(movie => movie.title.toLowerCase().includes(filter.search.toLowerCase()));
     }
+    if(filter.genre){
+        result = result.filter(movie => movie.genre.toLowerCase().includes(filter.genre.toLowerCase()));
+    }
+
     
 
     return result;
