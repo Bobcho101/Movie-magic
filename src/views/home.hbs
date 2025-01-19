@@ -2,20 +2,25 @@
     <h1>All Movies</h1>
     <div class="band">
 
-        {{#each movies}}
-            <div class="flip flip-vertical">
-                <div class="front">
-                    <img src="{{moviePoster}}" alt="{{title}}">
+        {{#if movies.length}}
+            {{#each movies}}
+                <div class="flip flip-vertical">
+                    <div class="front">
+                        <img src="{{moviePoster}}" alt="{{title}}">
+                    </div>
+                    <div class="back">
+                        <h1>{{title}}</h1>
+                        <h2>Genre: {{genre}}</h2>
+                        <p>Description: {{description}}</p>
+                        <a href="details/{{id}}" class="details">Details</a>
+                    </div>
                 </div>
-                <div class="back">
-                    <h1>{{title}}</h1>
-                    <h2>Genre: {{genre}}</h2>
-                    <p>Description: {{description}}</p>
-                    <a href="details/{{id}}" class="details">Details</a>
-                </div>
+            {{/each}}
+        {{else}}
+            <div class="no-posts">
+                <p class="no-offer">There are no posts yet...</p>
             </div>
-        {{/each}}
-
+        {{/if}}
         <!-- If there are posts for creature in the database display each of them -->
         {{!-- <div class="flip flip-vertical">
             <div class="front">
