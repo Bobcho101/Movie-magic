@@ -4,7 +4,7 @@ import movies from '../data/movies.js';
 const homeController = Router();
 
 homeController.get('/', (req, res) => {
-    res.render('home', {movies});
+    res.render('home', { movies });
 });
 
 
