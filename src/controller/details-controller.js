@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getOne } from "../data/db-methods.js";
+import { getOne } from "../services/movie-services.js";
 
 const detailsController = Router();
 

@@ -1,6 +1,6 @@
 import { Router } from "express";
 import movies from "../data/movies.js";
-import { getAllFilteredMovies } from "../data/db-methods.js";
+import { getAllFilteredMovies } from "../services/movie-services.js";
 
 const searchController = Router();
 
