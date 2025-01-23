@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 const createMovieController = Router();
 
 createMovieController.get('/create-movie', (req, res) => {
-    res.render('create')
+    res.render('create');
 });
 
 createMovieController.post('/create-movie', (req, res) => {

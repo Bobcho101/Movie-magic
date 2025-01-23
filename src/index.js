@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('src/public'));
 
 try{
-    const uri = 'mongodb://127.0.0.1/Movie Magic';
+    const uri = 'mongodb://127.0.0.1/movie-magic';
     await mongoose.connect(uri);
 } catch(err){
     console.log(err.message);
