@@ -3,13 +3,13 @@ import movies from '../data/movies.js';
 import { v4 as uuidv4 } from 'uuid';
 
 
-const createController = Router();
+const createMovieController = Router();
 
-createController.get('/create', (req, res) => {
+createMovieController.get('/create-movie', (req, res) => {
     res.render('create')
 });
 
-createController.post('/create', (req, res) => {
+createMovieController.post('/create-movie', (req, res) => {
     const formData = req.body;
     const id = uuidv4();
     
@@ -18,4 +18,4 @@ createController.post('/create', (req, res) => {
     res.redirect('/');
 });
 
-export default createController;
+export default createMovieController;
