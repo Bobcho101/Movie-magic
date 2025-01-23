@@ -3,8 +3,9 @@ import homeController from './controller/home-controller.js';
 import aboutController from './controller/about-controller.js';
 import createMovieController from './controller/create-movie-controller.js';
 import detailsController from './controller/details-controller.js';
-import searchController from './controller/searchController.js';
+import searchController from './controller/search-controller.js';
 import createCastController from './controller/create-cast-controller.js';
+import attachCastController from './controller/attach-cast-controller.js';
 
 const routes = Router();
 
@@ -14,6 +15,7 @@ routes.use(createMovieController);
 routes.use(detailsController);
 routes.use(searchController);
 routes.use(createCastController);
+routes.use(attachCastController);
 
 routes.get('*', (req, res) => {
     res.render('404');
