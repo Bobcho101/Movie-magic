@@ -25,6 +25,3 @@ export async function getAllFilteredMovies(filter = {}){
 export function createMovie(formData) {
     Movie.create(formData);
 }
-export function createCast(formData){
-    Cast.create(formData);
-}

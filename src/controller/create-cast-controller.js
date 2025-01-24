@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import Cast from '../models/CastsModel.js';
-import { createCast } from '../services/movie-services.js';
+import { createCast } from '../services/cast-services.js';
 
 const createCastController = Router();
 
