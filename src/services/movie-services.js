@@ -7,18 +7,42 @@ export async function getOne(id) {
     return movie;
 }
 export async function getAllFilteredMovies(filter = {}){
-    let result = await Movie.find({});
+    const query = {};
 
     if(filter.search){
-        result = result.filter(movie => movie.title.toLowerCase().includes(filter.search.toLowerCase()));
+        query.title = {$regex: filter.search, $options: "i"};
     }
+
     if(filter.genre){
-        result = result.filter(movie => movie.genre.toLowerCase().includes(filter.genre.toLowerCase()));
+        query.genre = { $regex: filter.genre, $options: "i" };
     }
 
     if(filter.year){
-        result = result.filter(movie => movie.year.toLowerCase().includes(filter.year.toLowerCase()));
+        query.year = filter.year;
     }
+
+    try {
+        const result = await Movie.find(query);
+        console.log(result);
+        
+        return result;
+    } catch (err) {
+        console.log(err.message);
+    }
+    
+    
+    // let result = await Movie.find({});
+
+    // if(filter.search){
+    //     result = result.filter(movie => movie.title.toLowerCase().includes(filter.search.toLowerCase()));
+    // }
+    // if(filter.genre){
+    //     result = result.filter(movie => movie.genre.toLowerCase().includes(filter.genre.toLowerCase()));
+    // }
+
+    // if(filter.year){
+    //     result = result.filter(movie => movie.year.toLowerCase().includes(filter.year.toLowerCase()));
+    // }
 
     return result;
 }
