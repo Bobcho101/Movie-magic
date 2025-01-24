@@ -1,8 +1,10 @@
 import movies from "../data/movies.js";
 import Movie from "../data/MoviesModel.js";
 
-export function getOne(id) {
-    const movie = movies.find(movie => movie.id === id);
+export async function getOne(id) {
+    // const movie = movies.find(movie => movie.id === id);
+    const movie = await Movie.findById(id);
+
     return movie;
 }
 export async function getAllFilteredMovies(filter = {}){
