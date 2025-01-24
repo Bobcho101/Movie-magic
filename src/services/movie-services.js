@@ -1,4 +1,3 @@
-import Cast from "../models/CastsModel.js";
 import Movie from "../models/MoviesModel.js";
 
 export async function getOne(id) {
@@ -22,9 +21,7 @@ export async function getAllFilteredMovies(filter = {}){
     }
 
     try {
-        const result = await Movie.find(query);
-        console.log(result);
-        
+        const result = await Movie.find(query);   
         return result;
     } catch (err) {
         console.log(err.message);
