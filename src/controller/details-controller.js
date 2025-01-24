@@ -15,9 +15,6 @@ detailsController.get('/details/:movieId', async (req, res) => {
         stars += "★";
     }
 
-    console.log(currentMovie);
-    console.log(stars);
-    
     
     res.render('details', { currentMovie, stars });
 });

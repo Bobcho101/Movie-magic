@@ -1,7 +1,6 @@
 import { Router } from 'express';
 import movies from '../data/movies.js';
-import { v4 as uuidv4 } from 'uuid';
-
+import Movie from '../data/MoviesModel.js';
 
 const createMovieController = Router();
 
@@ -11,10 +10,9 @@ createMovieController.get('/create-movie', (req, res) => {
 
 createMovieController.post('/create-movie', (req, res) => {
     const formData = req.body;
-    const id = uuidv4();
+    console.log(formData);
     
-    formData['id'] = id;
-    movies.push(formData);
+    Movie.create(formData);
     res.redirect('/');
 });
 
