@@ -9,7 +9,7 @@ searchController.get('/search',async (req, res) => {
     const movies = await getAllFilteredMovies(filter);
 
 
-    res.render('search', { movies, filter });
+    res.render('movie/search', { movies, filter });
 });
 
 export default searchController;

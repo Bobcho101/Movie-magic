@@ -16,7 +16,7 @@ detailsController.get('/details/:movieId', async (req, res) => {
     }
 
     
-    res.render('details', { currentMovie, stars });
+    res.render('movie/movie-details', { currentMovie, stars });
 });
 
 export default detailsController;

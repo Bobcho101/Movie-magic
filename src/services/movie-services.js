@@ -1,4 +1,4 @@
-import Movie from "../data/MoviesModel.js";
+import Movie from "../models/MoviesModel.js";
 
 export async function getOne(id) {
     // const movie = movies.find(movie => movie.id === id);
