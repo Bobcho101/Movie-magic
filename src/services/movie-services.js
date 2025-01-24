@@ -1,7 +1,7 @@
+import Cast from "../models/CastsModel.js";
 import Movie from "../models/MoviesModel.js";
 
 export async function getOne(id) {
-    // const movie = movies.find(movie => movie.id === id);
     const movie = await Movie.findById(id);
 
     return movie;
@@ -21,4 +21,10 @@ export async function getAllFilteredMovies(filter = {}){
     }
 
     return result;
+}
+export function createMovie(formData) {
+    Movie.create(formData);
+}
+export function createCast(formData){
+    Cast.create(formData);
 }

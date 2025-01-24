@@ -1,7 +1,7 @@
 import mongoose, { Schema, model } from "mongoose";
 
 const castSchema = new Schema({
-    title: {
+    name: {
         type: String,
         required: true,
     },

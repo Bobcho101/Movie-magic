@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import Movie from '../models/MoviesModel.js';
+import { createMovie } from '../services/movie-services.js';
 
 const createMovieController = Router();
 
@@ -9,7 +10,7 @@ createMovieController.get('/create-movie', (req, res) => {
 
 createMovieController.post('/create-movie', (req, res) => {
     const formData = req.body;
-    Movie.create(formData);
+    createMovie(formData);
     res.redirect('/');
 });
 

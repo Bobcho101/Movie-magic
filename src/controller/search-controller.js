@@ -5,7 +5,6 @@ const searchController = Router();
 
 searchController.get('/search',async (req, res) => {
     const filter = req.query;
-    // const movies = getAllFilteredMovies(filter);
     const movies = await getAllFilteredMovies(filter);
 
 
