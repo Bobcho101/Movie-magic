@@ -3,20 +3,23 @@ import { getOne } from "../services/movie-services.js";
 
 const detailsController = Router();
 
-detailsController.get('/details/:movieId', (req, res) => {
+detailsController.get('/details/:movieId', async (req, res) => {
     const currentId = req.params.movieId;
-    const currentMovie = getOne(currentId);
-    const currentMovieCopy = Object.assign({}, currentMovie);
-    
-    currentMovieCopy['rating'] = Math.floor(currentMovieCopy.rating);
+    const currentMovie = await getOne(currentId);
+
+    const rating = Math.floor(currentMovie.rating);
+
   
     let stars = "";
-    for(let i = 0; i < currentMovieCopy.rating; i++){
+    for(let i = 0; i < rating; i++){
         stars += "★";
     }
-    currentMovieCopy['rating'] = stars;
 
-    res.render('details', { currentMovieCopy });
+    console.log(currentMovie);
+    console.log(stars);
+    
+    
+    res.render('details', { currentMovie, stars });
 });
 
 export default detailsController;
