@@ -1,4 +1,4 @@
-This is my first node.js project using express and express handlebars and MongoDB(Mongoose).
+This is my first node.js project using express, express handlebars and MongoDB(Mongoose).
 Functionality: 
 1.Create a movie   |
 2.See all movies   |
