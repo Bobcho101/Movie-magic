@@ -6,7 +6,11 @@ const attachCastController = Router();
 
 attachCastController.get('/details/:movieId/attach-cast', async (req, res) => {
     const movie = await Movie.findById(req.params.movieId);
-    const casts = await getCasts();
+    const existingCasts = movie.casts;
+    const casts = await getCasts(existingCasts);
+
+   
+    
    
     res.render('movie/cast-attach', { casts, movie });
 });
