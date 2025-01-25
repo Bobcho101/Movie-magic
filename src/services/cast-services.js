@@ -16,3 +16,7 @@ export async function attachCast(movieId, castId){
     movie.casts.push(castId);
     await movie.save();
 }
+
+export async function getCastsForRender(castIds) {
+    return Cast.find({_id: { $in: castIds}});
+}
