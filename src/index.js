@@ -2,6 +2,9 @@ import express from 'express';
 import handlebars from 'express-handlebars';
 import mongoose from 'mongoose';
 import routes from './routes.js';
+import 'dotenv/config';
+
+
 const app = express();
 const port = 4000;
 
@@ -18,9 +21,10 @@ app.set('views', 'src/views');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('src/public'));
 
-try{
-    const globalUri = 'mongodb+srv://bgbobi878:nF1xmfzLcd5NP1YU@cluster0.gtyux.mongodb.net/movie-magic?retryWrites=true&w=majority&appName=Cluster0';
-    const uri = 'mongodb://127.0.0.1/movie-magic';
+try{ 
+    const globalUri = process.env.DATABASE_URI;
+    console.log(globalUri);
+    const localUri = 'mongodb://127.0.0.1/movie-magic';
     await mongoose.connect(globalUri);
 } catch(err){
     console.log(err.message);
