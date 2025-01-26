@@ -9,9 +9,6 @@ attachCastController.get('/details/:movieId/attach-cast', async (req, res) => {
     const existingCasts = movie.casts;
     const casts = await getCasts(existingCasts);
 
-   
-    
-   
     res.render('movie/cast-attach', { casts, movie });
 });
 

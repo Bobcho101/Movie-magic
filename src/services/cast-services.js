@@ -7,7 +7,6 @@ export function createCast(formData){
 }
 
 export async function getCasts(existingCasts) {
-    console.log(existingCasts);
     if(existingCasts.length > 0){
         const casts = await Cast.find({_id: {$nin: existingCasts}});
         return casts;
