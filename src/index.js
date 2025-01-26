@@ -23,7 +23,6 @@ app.use(express.static('src/public'));
 
 try{ 
     const globalUri = process.env.DATABASE_URI;
-    console.log(globalUri);
     const localUri = 'mongodb://127.0.0.1/movie-magic';
     await mongoose.connect(globalUri);
 } catch(err){
