@@ -19,8 +19,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('src/public'));
 
 try{
+    const globalUri = 'mongodb+srv://bgbobi878:nF1xmfzLcd5NP1YU@cluster0.gtyux.mongodb.net/movie-magic?retryWrites=true&w=majority&appName=Cluster0';
     const uri = 'mongodb://127.0.0.1/movie-magic';
-    await mongoose.connect(uri);
+    await mongoose.connect(globalUri);
 } catch(err){
     console.log(err.message);
 }
