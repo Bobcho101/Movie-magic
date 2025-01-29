@@ -7,6 +7,7 @@ import searchController from './controller/search-controller.js';
 import createCastController from './controller/create-cast-controller.js';
 import attachCastController from './controller/attach-cast-controller.js';
 import registerController from './controller/register-controller.js';
+import loginController from './controller/login-controller.js';
 
 const routes = Router();
 
@@ -18,6 +19,7 @@ routes.use(searchController);
 routes.use(createCastController);
 routes.use(attachCastController);
 routes.use(registerController);
+routes.use(loginController);
 
 routes.get('*', (req, res) => {
     res.render('404');
