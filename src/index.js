@@ -4,7 +4,7 @@ import handlebars from 'express-handlebars';
 import mongoose from 'mongoose';
 import routes from './routes.js';
 import 'dotenv/config';
-
+import { authMiddleware } from './middlewares/auth-middleware.js';
 
 const app = express();
 const port = 4000;
@@ -30,6 +30,8 @@ try{
 } catch(err){
     console.log(err.message);
 }
+
+app.use(authMiddleware);
 
 app.use(routes);
 
