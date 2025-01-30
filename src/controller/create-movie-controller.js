@@ -14,10 +14,9 @@ createMovieController.post('/create-movie', async (req, res) => {
     if(req.user !== undefined){
         const userId = req.user.id;
         formData.creator = new ObjectId(userId);
+        await createMovie(formData);
+        res.redirect('/');
     }
-     
-    await createMovie(formData);
-    res.redirect('/');
 });
 
 export default createMovieController;
