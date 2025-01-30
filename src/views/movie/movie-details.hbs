@@ -22,11 +22,14 @@
                 <p class="card-category">Category: {{currentMovie.category}}</p>
 
                 <!--Owner-->
+                {{#if isOwner}}
                 <div style="display: flex; justify-content: center;">
                     <a href="/details/{{currentMovie.id}}/attach-cast" class="details">Attach</a>
                     <a class="details">Edit</a>
                     <a class="details">Delete</a>
                 </div>
+                {{/if}}
+                
                  <!--Owner-->
             </div>
         </div>
