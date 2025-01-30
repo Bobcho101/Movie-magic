@@ -10,6 +10,15 @@ detailsController.get('/details/:movieId', async (req, res) => {
     const currentMovieCastsIds = currentMovie.casts;
     const casts = await getCastsForRender(currentMovieCastsIds);
 
+    let isOwner;
+    if(req.user === undefined){
+        isOwner = false;
+    } else{
+        isOwner = req.user.id == currentMovie.creator.toString();
+    }
+    console.log(isOwner);
+    
+
     const rating = Math.floor(currentMovie.rating);
 
     let stars = "";
@@ -17,7 +26,7 @@ detailsController.get('/details/:movieId', async (req, res) => {
         stars += "★";
     }
 
-    res.render('movie/movie-details', { currentMovie, stars, casts});
+    res.render('movie/movie-details', { currentMovie, stars, casts });
 });
 
 export default detailsController;

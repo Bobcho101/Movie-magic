@@ -41,6 +41,6 @@ export async function login(email, password){
     };
 
     const token = jwt.sign(payload, SECRET, { expiresIn: '3h'});
-
+    
     return token;
 }
