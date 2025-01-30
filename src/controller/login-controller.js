@@ -14,7 +14,7 @@ loginController.post('/auth/login', async (req, res) => {
         res.redirect('/');
     } catch(err){
         console.log(err.message); 
-        res.redirect('/404')
+        res.redirect('/404');
     }
    
 });

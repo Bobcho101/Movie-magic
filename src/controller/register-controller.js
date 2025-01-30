@@ -14,7 +14,7 @@ registerController.post('/auth/register', (req, res) => {
         res.redirect('/');
     } catch(err){   
         console.log(err.message);
-        res.redirect('/auth/register');
+        res.redirect('/404');
     }
 });
 
