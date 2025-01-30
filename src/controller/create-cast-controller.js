@@ -9,7 +9,6 @@ createCastController.get('/create-cast', (req, res) => {
 });
 createCastController.post('/create-cast', (req, res) => {
     const formData = req.body;
-
     createCast(formData);
     res.redirect('/');
 });
