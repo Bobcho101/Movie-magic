@@ -4,11 +4,23 @@ import jwt from 'jsonwebtoken';
 
 const SECRET = '10$01ad231sx23DRDadpjtC/m5Rwd3uY75fwadw';
 
-export function register(email, password, rePass) {
+export async function register(email, password, rePass) {
     if(password != rePass){
         throw new Error('Password missmatched!');
     }
-    return User.create({ email, password });
+    const userExists = await User.findOne({email});
+    if(userExists){
+        throw new Error("This user already exists!");
+    }
+    const user = User.create({ email, password });
+    const payload = {
+        id: user._id,
+        email: user.email,
+    };
+
+    const token = jwt.sign(payload, SECRET, { expiresIn: '3h'});
+
+    return token;
 }
 
 export async function login(email, password){
@@ -31,5 +43,4 @@ export async function login(email, password){
     const token = jwt.sign(payload, SECRET, { expiresIn: '3h'});
 
     return token;
-
 }
