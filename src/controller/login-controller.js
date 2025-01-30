@@ -11,6 +11,7 @@ loginController.post('/auth/login', async (req, res) => {
 
     try{
         const token = await login(data.email, data.password);
+        res.cookie('auth', token);
         res.redirect('/');
     } catch(err){
         console.log(err.message); 
