@@ -1,5 +1,8 @@
 import User from "../models/UserModel.js";
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+
+const SECRET = '10$01ad231sx23DRDadpjtC/m5Rwd3uY75fwadw';
 
 export function register(email, password, rePass) {
     if(password != rePass){
@@ -20,5 +23,13 @@ export async function login(email, password){
         throw new Error("Wrong password!");
     }
     
+    const payload = {
+        id: user._id,
+        email: user.email,
+    };
+
+    const token = jwt.sign(payload, SECRET, { expiresIn: '3h'});
+
+    return token;
 
 }

@@ -10,10 +10,11 @@ loginController.post('/auth/login', async (req, res) => {
     const data = req.body;
 
     try{
-        const user = await login(data.email, data.password);
+        const token = await login(data.email, data.password);
         res.redirect('/');
     } catch(err){
         console.log(err.message); 
+        res.redirect('/404')
     }
    
 });
