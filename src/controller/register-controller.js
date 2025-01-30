@@ -15,7 +15,7 @@ registerController.post('/auth/register', async (req, res) => {
         res.redirect('/');
     } catch(err){   
         console.log(err.message);
-        res.render('/404');
+        res.render('404');
     }
 });
 
