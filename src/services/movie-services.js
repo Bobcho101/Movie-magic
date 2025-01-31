@@ -46,3 +46,7 @@ export async function getAllFilteredMovies(filter = {}){
 export function createMovie(formData) {
     Movie.create(formData);
 }
+
+export async function deleteMovie(movieId){
+    await Movie.findByIdAndDelete(movieId);
+}
