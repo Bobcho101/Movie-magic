@@ -1,5 +1,6 @@
 import { Router } from "express";
-import { getCategories, getOne } from "../services/movie-services.js";
+import { ObjectId } from "mongodb";
+import { getCategories, getOne, updateMovie } from "../services/movie-services.js";
 const editMovieController = Router();
 
 editMovieController.get('/details/:movieId/edit', async (req, res) => {
@@ -12,4 +13,20 @@ editMovieController.get('/details/:movieId/edit', async (req, res) => {
     res.render('movie/movie-edit', { movie, categories });
 });
 
+editMovieController.post('/details/:movieId/edit', async (req, res) => {
+    let userId;
+    try {
+        userId = req.user.id;
+    } catch(err){
+        console.log(err.message);
+    }
+    
+    const movieId = req.params.movieId;
+    const currentMovie = await getOne(movieId);
+    const currentMovieCreatorId = currentMovie.creator;
+
+
+    if(currentMovieCreatorId.toString() != userId || userId == undefined){
+        return res.redirect('/404');
+    }
 export default editMovieController;
