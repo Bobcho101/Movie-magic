@@ -50,3 +50,20 @@ export function createMovie(formData) {
 export async function deleteMovie(movieId){
     await Movie.findByIdAndDelete(movieId);
 }
+
+export function getCategories(selectedCategory){
+    const categoriesMap = {
+        'tv-show': 'TV Show',
+        'animation': 'Animation',
+        'movie': 'Movie',
+        'documentary': 'Documentary',
+        'short film': 'Short Film'
+    };
+
+    const categories = Object.keys(categoriesMap).map(value => ({
+        value,
+        label: categoriesMap[value],
+        isSelected: value === selectedCategory
+    }));
+    return categories;
+}
