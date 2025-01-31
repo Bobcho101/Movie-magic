@@ -68,3 +68,7 @@ export function getCategories(selectedCategory){
     
     return categories;
 }
+
+export async function updateMovie(movieId) {
+    await Movie.updateOne(movieId);
+}
