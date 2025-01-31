@@ -57,13 +57,14 @@ export function getCategories(selectedCategory){
         'animation': 'Animation',
         'movie': 'Movie',
         'documentary': 'Documentary',
-        'short film': 'Short Film'
+        'short-film': 'Short Film'
     };
 
     const categories = Object.keys(categoriesMap).map(value => ({
         value,
         label: categoriesMap[value],
-        isSelected: value === selectedCategory
+        selected: value === selectedCategory ? "selected" : "",
     }));
+    
     return categories;
 }
