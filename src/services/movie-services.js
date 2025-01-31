@@ -69,6 +69,6 @@ export function getCategories(selectedCategory){
     return categories;
 }
 
-export async function updateMovie(movieId) {
-    await Movie.updateOne(movieId);
+export async function updateMovie(movieId, formData) {
+    await Movie.findByIdAndUpdate(movieId, formData);
 }

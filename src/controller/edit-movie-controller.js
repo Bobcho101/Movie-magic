@@ -29,4 +29,12 @@ editMovieController.post('/details/:movieId/edit', async (req, res) => {
     if(currentMovieCreatorId.toString() != userId || userId == undefined){
         return res.redirect('/404');
     }
+
+    const formData = req.body;
+    
+    await updateMovie(movieId, formData);
+    res.redirect(`/details/${movieId}/`);
+});
+
+
 export default editMovieController;
