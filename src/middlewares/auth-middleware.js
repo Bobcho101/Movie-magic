@@ -19,3 +19,18 @@ export const authMiddleware = (req, res, next) => {
         res.render('404');
     }
 }
+
+export async function isUser(req, res, next) {
+    if(!req.user){
+        return res.redirect('/auth/login');
+    } 
+    
+    next();
+}
+
+export async function isAlreadyUser(req, res, next) {
+    if(req.user){
+        return res.redirect('/');
+    }
+    next();
+}

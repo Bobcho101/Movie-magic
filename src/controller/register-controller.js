@@ -1,8 +1,9 @@
 import { Router } from "express";
 import { register } from "../services/auth-services.js";
+import { isAlreadyUser } from "../middlewares/auth-middleware.js";
 const registerController = Router();
 
-registerController.get('/auth/register', (req, res) => {
+registerController.get('/auth/register', isAlreadyUser, (req, res) => {
     res.render('auth/register');
 });
 

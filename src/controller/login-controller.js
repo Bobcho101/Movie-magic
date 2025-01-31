@@ -1,8 +1,9 @@
 import { Router } from "express";
 import { login } from "../services/auth-services.js";
+import { isAlreadyUser } from "../middlewares/auth-middleware.js";
 const loginController = Router();
 
-loginController.get('/auth/login', (req, res) => {
+loginController.get('/auth/login', isAlreadyUser, (req, res) => {
     res.render('auth/login');
 });
 

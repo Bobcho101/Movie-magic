@@ -1,11 +1,12 @@
 import { Router } from 'express';
 import { createMovie } from '../services/movie-services.js';
 import { ObjectId } from 'mongodb';
+import {isUser} from '../middlewares/auth-middleware.js';
 
 
 const createMovieController = Router();
 
-createMovieController.get('/create-movie', (req, res) => {
+createMovieController.get('/create-movie', isUser, (req, res) => {
     res.render('create/movie-create');
 });
 
