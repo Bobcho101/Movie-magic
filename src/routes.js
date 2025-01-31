@@ -10,6 +10,7 @@ import registerController from './controller/register-controller.js';
 import loginController from './controller/login-controller.js';
 import logoutController from './controller/logout-controller.js';
 import editMovieController from './controller/edit-movie-controller.js';
+import deleteMovieController from './controller/delete-movie-controller.js';
 
 const routes = Router();
 
@@ -24,6 +25,7 @@ routes.use(registerController);
 routes.use(loginController);
 routes.use(logoutController);
 routes.use(editMovieController);
+routes.use(deleteMovieController);
 
 routes.get('*', (req, res) => {
     res.render('404');
