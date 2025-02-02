@@ -5,23 +5,8 @@ import {isUser} from "../middlewares/auth-middleware.js";
 const editMovieController = Router();
 
 editMovieController.get('/details/:movieId/edit', isUser, async (req, res) => {
-    const currentMovieId = req.params.movieId;
-    const currentMovie = await getOne(currentMovieId);
-    const movie = currentMovie;
-    const categories = getCategories(movie.category);
 
-    
-    res.render('movie/movie-edit', { movie, categories });
-});
-
-editMovieController.post('/details/:movieId/edit', async (req, res) => {
-    let userId;
-    try {
-        userId = req.user.id;
-    } catch(err){
-        console.log(err.message);
-    }
-    
+    const userId = req.user.id;
     const movieId = req.params.movieId;
     const currentMovie = await getOne(movieId);
     const currentMovieCreatorId = currentMovie.creator;
@@ -31,6 +16,14 @@ editMovieController.post('/details/:movieId/edit', async (req, res) => {
         return res.redirect('/404');
     }
 
+    const movie = currentMovie;
+    const categories = getCategories(movie.category);
+
+    
+    res.render('movie/movie-edit', { movie, categories });
+});
+
+editMovieController.post('/details/:movieId/edit', async (req, res) => {
     const formData = req.body;
     
     await updateMovie(movieId, formData);
