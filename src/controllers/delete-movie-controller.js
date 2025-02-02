@@ -1,16 +1,11 @@
 import { Router } from "express";
 import Movie from "../models/MoviesModel.js";
 import { deleteMovie, getOne } from "../services/movie-services.js";
+import { isUser } from "../middlewares/auth-middleware.js";
 const deleteMovieController = Router();
 
-deleteMovieController.get("/details/:movieId/delete", async (req, res) => {
-    let userId;
-    try {
-        userId = req.user.id;
-    } catch(err){
-        console.log(err.message);
-    }
-    
+deleteMovieController.get("/details/:movieId/delete", isUser, async (req, res) => {
+    const userId = req.user.id;
     const movieId = req.params.movieId;
     const currentMovie = await getOne(movieId);
     const currentMovieCreatorId = currentMovie.creator;
