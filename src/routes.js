@@ -1,16 +1,16 @@
 import { Router } from 'express';
-import homeController from './controller/home-controller.js';
-import aboutController from './controller/about-controller.js';
-import createMovieController from './controller/create-movie-controller.js';
-import detailsController from './controller/details-controller.js';
-import searchController from './controller/search-controller.js';
-import createCastController from './controller/create-cast-controller.js';
-import attachCastController from './controller/attach-cast-controller.js';
-import registerController from './controller/register-controller.js';
-import loginController from './controller/login-controller.js';
-import logoutController from './controller/logout-controller.js';
-import editMovieController from './controller/edit-movie-controller.js';
-import deleteMovieController from './controller/delete-movie-controller.js';
+import homeController from './controllers/home-controller.js';
+import aboutController from './controllers/about-controller.js';
+import createMovieController from './controllers/create-movie-controller.js';
+import detailsController from './controllers/details-controller.js';
+import searchController from './controllers/search-controller.js';
+import createCastController from './controllers/create-cast-controller.js';
+import attachCastController from './controllers/attach-cast-controller.js';
+import registerController from './controllers/register-controller.js';
+import loginController from './controllers/login-controller.js';
+import logoutController from './controllers/logout-controller.js';
+import editMovieController from './controllers/edit-movie-controller.js';
+import deleteMovieController from './controllers/delete-movie-controller.js';
 
 const routes = Router();
 
