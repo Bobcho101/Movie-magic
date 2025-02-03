@@ -2,8 +2,8 @@ import { visitFunctionBody } from "typescript";
 import Cast from "../models/CastsModel.js";
 import Movie from "../models/MoviesModel.js";
 
-export function createCast(formData){
-    Cast.create(formData);
+export async function createCast(formData){
+    return await Cast.create(formData);
 }
 
 export async function getCasts(existingCasts) {
