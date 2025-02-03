@@ -11,7 +11,7 @@ export async function register(email, password, rePass) {
     const userExists = await User.findOne({email});
     if(userExists){
         throw new Error("This user already exists!");
-    }
+    }   
     const user = User.create({ email, password });
     const payload = {
         id: user._id,

@@ -43,8 +43,8 @@ export async function getAllFilteredMovies(filter = {}){
 
     return result;
 }
-export function createMovie(formData) {
-    Movie.create(formData);
+export async function createMovie(formData) {
+    return await Movie.create(formData);
 }
 
 export async function deleteMovie(movieId){
