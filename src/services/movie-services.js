@@ -70,5 +70,5 @@ export function getCategories(selectedCategory){
 }
 
 export async function updateMovie(movieId, formData) {
-    await Movie.findByIdAndUpdate(movieId, formData);
+    await Movie.findByIdAndUpdate(movieId, formData, {runValidators: true});
 }

@@ -26,9 +26,14 @@ editMovieController.get('/details/:movieId/edit', isUser, async (req, res) => {
 editMovieController.post('/details/:movieId/edit', async (req, res) => {
     const formData = req.body;
     const movieId = req.params.movieId;
-    
-    await updateMovie(movieId, formData);
-    res.redirect(`/details/${movieId}/`);
+    try{
+        await updateMovie(movieId, formData);
+        res.redirect(`/details/${movieId}/`);
+    } catch(err){
+        console.log(err.message);
+        return res.redirect(`/details/${movieId}/edit`);
+    }       
+   
 });
 
 
