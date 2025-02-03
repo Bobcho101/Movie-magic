@@ -7,7 +7,14 @@ const movieSchema = new Schema({
     },
     category: {
         type: String,
-        required: true
+        required: true,
+        enum: [
+            'tv-show',
+            'animation',
+            'movie',
+            'documentary',
+            'short-film',
+        ]
     },
     genre: {
         type: String,
