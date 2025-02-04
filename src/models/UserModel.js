@@ -6,7 +6,7 @@ const userSchema = new Schema({
     email: {
         type: String,
         required: true, 
-        minlength: 10,
+        minLength: [10, 'Email should be at least 10 characters!'],
         unique: true,
         lowercase: true, 
         match: /\@[a-zA-Z]+.[a-zA-Z]+$/,
