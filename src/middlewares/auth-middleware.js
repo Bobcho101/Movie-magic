@@ -6,7 +6,6 @@ export const authMiddleware = (req, res, next) => {
     if(!token){
         return next();
     }
-
     try{
         const decodedToken = jwt.verify(token, SECRET);
         req.user = decodedToken;

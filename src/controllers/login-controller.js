@@ -9,14 +9,17 @@ loginController.get('/auth/login', isAlreadyUser, (req, res) => {
 
 loginController.post('/auth/login', async (req, res) => {
     const data = req.body;
-
+    
+    
     try{
         const token = await login(data.email, data.password);
         res.cookie('auth', token);
         res.redirect('/');
     } catch(err){
         console.log(err.message); 
-        res.redirect('/404');
+        res.locals.error = err.message;
+        res.render('auth/login', { error: err.message });
+        //res.redirect('/404');
     }
    
 });
