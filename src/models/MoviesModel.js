@@ -3,7 +3,10 @@ import mongoose, { Schema, model, Types } from "mongoose";
 const movieSchema = new Schema({
     title: {
         type: String,
-        required: true
+        required: [true, 'Title is required!'],
+        minLength: [5, 'Title should be at least 5 characters long!'],
+        maxLength: 250,
+        match: [/^[a-zA-Z 0-9]+$/, 'Title should be alphanumeric, digits and whitespaces only!']
     },
     category: {
         type: String,
@@ -18,33 +21,39 @@ const movieSchema = new Schema({
     },
     genre: {
         type: String,
-        required: true,
+        required: [true, 'Genre is required!'],
+        maxLength: 250,
+        match: [/^[a-zA-Z 0-9]+$/, 'Genre should be alphanumeric, digits and whitespaces only!']
     },
     director: {
         type: String,
-        required: true,
+        required: [true, 'Director is required!'],
+        minLength: [5, 'Director should be at least 5 characters long!'],
+        maxLength: 250,
+        match: [/^[a-zA-Z 0-9]+$/, 'Director should be alphanumeric, digits and whitespaces only!']
     },
     year: {
         type: String,
         required: true,
-        min: [1980, 'Too old!'],
-        max: [2026, 'Cannot be set in the future!']
+        min: [1900, 'Too old!'],
+        max: [2025, 'Cannot be set in the future!']
     },
     imageUrl: {
         type: String,
         required: true,
+        match: /^https?:\/\//
     },
     rating: {
         type: Number,
         required: true,
-        min: [0, 'Cannot be less than 0!'],
+        default: 1,
+        min: [1, 'Cannot be less than 0!'],
         max: [10, 'The rating cannot be more than 10!']
     },
     description: {
         type: String,
         required: true,
-        minlength: [10, 'Description must be at least 10 characters long'],
-        maxlength: [500, 'Description cannot exceed 500 characters']
+        minlength: [20, 'Description must be at least 20 characters long'],
     },
     casts: [{
         type: Types.ObjectId,
