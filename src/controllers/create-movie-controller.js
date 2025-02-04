@@ -20,7 +20,8 @@ createMovieController.post('/create-movie', async (req, res) => {
             res.redirect('/');
         } catch(err){
             console.log(err.message);
-            res.redirect('/404');
+            res.render('create/movie-create', { error: err.message })
+            //res.redirect('/404');
         }
     }
 });
