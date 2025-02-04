@@ -12,7 +12,7 @@ export async function register(email, password, rePass) {
     if(userExists){
         throw new Error("This user already exists!");
     }   
-    const user = User.create({ email, password });
+    const user = await User.create({ email, password });
     const payload = {
         id: user._id,
         email: user.email,
