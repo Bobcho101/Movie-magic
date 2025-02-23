@@ -28,13 +28,13 @@ This is my first node.js project using express.
 - cookie-parser
 
 ## Functionality 
-1. Authentication(*register, login and logout*)
+1. Authentication (*register, login and logout*)
 2. See all movies
-3. Search movies(*search page with search filters*)
+3. Search movies (*search page with search filters*)
 4. Detailed view of every movie
-5. Create a new movie(*only if user*)
-6. Create a new cast(*only if user*)
-7. You can edit and delete movie(*only if owner*)
+5. Create a new movie (*only if user*)
+6. Create a new cast (*only if user*)
+7. You can edit and delete movie (*only if owner*)
 8. You can attach a cast to your movie(*only if owner*, *you cannot attach 2 or more same casts to a movie*)
 
 ## How to run the app locally on your machine
