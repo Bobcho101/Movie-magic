@@ -44,8 +44,8 @@ npm install
 ```
 2. **Run the app**
 ```bash
-npm run dev (*this is using nodemon*)
-npm start (*without nodemon*)
+npm run dev (this is using nodemon)
+npm start (without nodemon)
 ```
 
 ## Notes
